@@ -1,10 +1,6 @@
 <?php
 
-$users = [
-    ['id' => 1, 'name' => 'Alice'],
-    ['id' => 2, 'name' => 'Bob'],
-    ['id' => 3, 'name' => 'Charlie']
-];
+
 
 $method = $_SERVER['REQUEST_METHOD'];
 $endpoint = $_SERVER['REQUEST_URI'];
