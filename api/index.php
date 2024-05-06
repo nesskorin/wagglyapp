@@ -1,6 +1,11 @@
 <?php
 
-
+include('../db/dbcalls.php');
+/*
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+*/
 
 $method = $_SERVER['REQUEST_METHOD'];
 $endpoint = $_SERVER['REQUEST_URI'];
@@ -8,6 +13,7 @@ $endpoint = $_SERVER['REQUEST_URI'];
 switch ($method) {
     case 'GET':
         if ($endpoint === '/api/users') {
+            $users = getUsers();
             header('Content-Type: application/json');
             echo json_encode($users);
         } elseif (preg_match('/\/users\/(\d+)/', $endpoint, $matches)) {
