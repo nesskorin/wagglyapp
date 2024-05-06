@@ -32,7 +32,6 @@ include('header.php');
       <label for="inputAvailability" class="form-label mt-4">Are you full time or part time?</label>
       <input type="text" class="form-control" id="inputAvailability" placeholder="Enter hours you work">
     </div>
-    <fieldset>
     <legend class="mt-4">Are you insured?</legend>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="insuredRadios" id="insuredRadios1" value="option1" checked="">
