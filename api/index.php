@@ -29,6 +29,7 @@ switch ($method) {
                 echo json_encode(['error' => 'User not found']);
             }
         }
+        break;
     case 'POST':
         if ($endpoint === '/api/users') {
             $newUser = json_encode($_REQUEST);
