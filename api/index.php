@@ -29,6 +29,19 @@ switch ($method) {
                 echo json_encode(['error' => 'User not found']);
             }
         }
+    case 'POST':
+        if ($endpoint === '/api/users') {
+            $newUser = json_encode($_REQUEST);
+            addUser($newUser);
+            header("Location: ../index.php");
+            exit;
+        } elseif ($endpoint === '/api/walkers') {
+            $newWalker = json_encode($_REQUEST);
+            print_r($newWalker);
+            addWalker($newWalker);
+            header("Location: ../index.php");
+            exit;
+        }
         break;
     default: 
         http_response_code(405);

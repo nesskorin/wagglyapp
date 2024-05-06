@@ -28,4 +28,18 @@ function getUsers() {
     return $users;
 }
 
+function addUser($newUser) {
+    global $mysqli;
+    $sql = "INSERT INTO users (`jsonData`) VALUES ('" . $newUser . "')";
+    $result = $mysqli->query($sql);
+    $mysqli->close();
+}
+
+function addWalker($newWalker) {
+    global $mysqli;
+    $sql = "INSERT INTO walkers (`jsonData`) VALUES ('" . $newWalker . "')";
+    $result = $mysqli->query($sql);
+    $mysqli->close();
+}
+
 ?>
