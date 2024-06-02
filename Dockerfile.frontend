@@ -1,0 +1,10 @@
+# Frontend Dockerfile
+
+# Use the official PHP image with Apache
+FROM php:7.4-apache
+
+# Copy the frontend files to the appropriate directory in the container
+COPY ./frontend/ /var/www/html/
+
+# Expose port 80
+EXPOSE 80

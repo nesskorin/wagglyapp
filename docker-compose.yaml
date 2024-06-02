@@ -1,0 +1,39 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend/:/var/www/html/
+    platform: linux/amd64
+  
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8081:80"
+    volumes:
+      - ./backend/:/var/www/html/
+    depends_on:
+      - db
+    platform: linux/amd64
+
+  db:
+    container_name: mysql8
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "waqqly"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "root"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/:/docker-entrypoint-initdb.d/
+#    platform: linux/amd64
+# Names our volume
+volumes:
+  db_data:

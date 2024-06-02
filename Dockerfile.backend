@@ -1,0 +1,13 @@
+# Backend Dockerfile
+
+# Use the official PHP image with Apache
+FROM php:7.4-apache
+
+# Copy the backend files to the appropriate directory in the container
+COPY ./backend/ /var/www/html/
+
+# Install any PHP extensions if needed (e.g., mysqli for MySQL)
+RUN docker-php-ext-install mysqli
+
+# Expose port 80
+EXPOSE 80
